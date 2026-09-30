@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bangaram ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    font-family:Arial,sans-serif;
+    background:
+    radial-gradient(circle at center,#42005c,#12001d 55%,#020006);
+    color:white;
+}
+
+/* MAIN */
+.scene{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* STARS */
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 10px white;
+    animation:twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.2;transform:scale(.5);}
+    to{opacity:1;transform:scale(1.5);}
+}
+
+/* TITLE */
+.title{
+    position:absolute;
+    top:8%;
+    width:100%;
+    text-align:center;
+    z-index:10;
+}
+
+h1{
+    font-size:clamp(35px,9vw,80px);
+    line-height:1.15;
+    text-shadow:
+    0 0 10px #ff4da6,
+    0 0 30px #ff1493,
+    0 0 70px #ff0080;
+
+    animation:titleGlow 2s infinite alternate;
+}
+
+.subtitle{
+    margin-top:12px;
+    font-size:clamp(14px,4vw,22px);
+    letter-spacing:3px;
+    color:#ffd6ed;
+}
+
+@keyframes titleGlow{
+    from{
+        transform:scale(1);
+        text-shadow:0 0 10px #ff4da6;
+    }
+
+    to{
+        transform:scale(1.06);
+        text-shadow:
+        0 0 20px #ff4da6,
+        0 0 50px #ff1493,
+        0 0 90px #ff0080;
+    }
+}
+
+/* CAKE */
+.cake{
+    position:absolute;
+    width:230px;
+    height:200px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-25%);
+    z-index:8;
+}
+
+/* CAKE LAYERS */
+.layer{
+    position:absolute;
+    border-radius:12px;
+}
+
+.bottom{
+    width:220px;
+    height:60px;
+    bottom:0;
+    left:5px;
+    background:linear-gradient(#ff70b5,#ff168c);
+    box-shadow:0 0 25px #ff1493;
+}
+
+.middle{
+    width:180px;
+    height:55px;
+    bottom:50px;
+    left:25px;
+    background:#ff9dcc;
+}
+
+.top{
+    width:140px;
+    height:50px;
+    bottom:95px;
+    left:45px;
+    background:#ffd0e7;
+}
+
+/* CANDLE */
+.candle{
+    position:absolute;
+    width:18px;
+    height:60px;
+    background:
+    repeating-linear-gradient(
+        45deg,
+        white 0px,
+        white 8px,
+        #ff4da6 8px,
+        #ff4da6 16px
+    );
+    left:106px;
+    bottom:140px;
+    border-radius:5px;
+}
+
+/* FLAME */
+.flame{
+    position:absolute;
+    width:28px;
+    height:40px;
+    background:#ffae00;
+    left:101px;
+    bottom:192px;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    box-shadow:
+    0 0 15px yellow,
+    0 0 30px orange,
+    0 0 50px #ff4500;
+
+    animation:flame .5s infinite alternate;
+}
+
+@keyframes flame{
+    from{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    to{
+        transform:rotate(-45deg) scale(1.25);
+    }
+}
+
+/* BALLOONS */
+.balloon{
+    position:absolute;
+    width:65px;
+    height:82px;
+    border-radius:50%;
+    z-index:5;
+    animation:balloonFloat 4s ease-in-out infinite;
+}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:150px;
+    background:rgba(255,255,255,.7);
+    left:32px;
+    top:80px;
+}
+
+.b1{
+    left:6%;
+    top:20%;
+    background:#ff367f;
+}
+
+.b2{
+    right:7%;
+    top:15%;
+    background:#2bdcff;
+    animation-delay:1s;
+}
+
+.b3{
+    left:12%;
+    bottom:12%;
+    background:#ffd52e;
+    animation-delay:2s;
+}
+
+.b4{
+    right:12%;
+    bottom:10%;
+    background:#a957ff;
+    animation-delay:3s;
+}
+
+@keyframes balloonFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+
+    50%{
+        transform:translateY(-35px) rotate(5deg);
+    }
+}
+
+/* HEARTS */
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:25px;
+    animation:heartUp 6s linear infinite;
+    z-index:4;
+}
+
+@keyframes heartUp{
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) scale(1.5) rotate(20deg);
+        opacity:0;
+    }
+}
+/* BUTTON */
+.surpriseBtn{
+    position:absolute;
+    bottom:8%;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:20;
+
+    padding:15px 30px;
+    border:0;
+    border-radius:30px;
+
+    background:linear-gradient(90deg,#ff1493,#ff55b5);
+    color:white;
+
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 15px #ff1493,
+    0 0 35px #ff1493;
+
+    animation:buttonPulse 1.5s infinite;
+}
+
+@keyframes buttonPulse{
+    0%,100%{
+        box-shadow:0 0 15px #ff1493;
+    }
+
+    50%{
+        box-shadow:
+        0 0 30px #ff1493,
+        0 0 60px #ff1493;
+    }
+}
+
+/* POPUP */
+.popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100;
+
+    background:rgba(0,0,0,.65);
+
+    justify-content:center;
+    align-items:center;
+}
+
+.popupBox{
+    width:85%;
+    max-width:500px;
+    padding:35px 25px;
+
+    background:
+    linear-gradient(145deg,#360047,#15001e);
+
+    border:2px solid #ff4da6;
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 0 30px #ff1493,
+    0 0 80px #ff1493;
+
+    animation:popup .5s ease;
+}
+
+.popupBox h2{
+    color:#ff70b5;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.popupBox p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+.closeBtn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:0;
+    border-radius:25px;
+    background:#ff1493;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.3) rotate(-10deg);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1) rotate(0);
+        opacity:1;
+    }
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    .cake{
+        transform:translate(-50%,-20%) scale(.8);
+    }
+
+    .balloon{
+        width:45px;
+        height:60px;
+    }
+
+    .balloon:after{
+        left:22px;
+        top:58px;
+        height:100px;
+    }
+
+    .surpriseBtn{
+        bottom:6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- STARS -->
+    <div class="star" style="left:8%;top:10%"></div>
+    <div class="star" style="left:20%;top:30%"></div>
+    <div class="star" style="left:35%;top:15%"></div>
+    <div class="star" style="left:70%;top:20%"></div>
+    <div class="star" style="left:88%;top:35%"></div>
+    <div class="star" style="left:75%;top:75%"></div>
+    <div class="star" style="left:25%;top:70%"></div>
+
+    <!-- BALLOONS -->
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <div class="balloon b4"></div>
+
+    <!-- TITLE -->
+    <div class="title">
+        <h1>
+            🎉 HAPPY BIRTHDAY<br>
+            BANGARAM ❤️
+        </h1>
+
+        <div class="subtitle">
+            Wishing you lots of happiness & love ✨
+        </div>
+    </div>
+
+    <!-- CAKE -->
+    <div class="cake">
+
+        <div class="layer bottom"></div>
+        <div class="layer middle"></div>
+        <div class="layer top"></div>
+
+        <div class="candle"></div>
+        <div class="flame"></div>
+
+    </div>
+
+    <!-- HEARTS -->
+    <div class="heart" style="left:10%;animation-delay:0s">❤️</div>
+    <div class="heart" style="left:25%;animation-delay:2s">💖</div>
+    <div class="heart" style="left:45%;animation-delay:1s">💕</div>
+    <div class="heart" style="left:65%;animation-delay:3s">❤️</div>
+    <div class="heart" style="left:85%;animation-delay:1.5s">💗</div>
+
+    <!-- BUTTON -->
+    <button class="surpriseBtn" onclick="openSurprise()">
+        🎁 CLICK FOR SURPRISE
+    </button>
+
+</div>
+
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popupBox">
+
+        <h2>❤️ Bangaram ❤️</h2>
+
+        <p>
+            Happy Birthday! 🎂✨
+            <br><br>
+            May your life always be filled with
+            happiness, love, beautiful memories
+            and lots of smiles. 💕
+            <br><br>
+            Keep smiling and stay happy always! 🥰
+        </p>
+
+        <button class="closeBtn" onclick="closeSurprise()">
+            💖 CLOSE
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openSurprise(){
+
+    document.getElementById("popup").style.display = "flex";
+
+    createConfetti();
+}
+function closeSurprise(){
+
+    document.getElementById("popup").style.display = "none";
+
+}
+
+
+/* CONFETTI */
+
+function createConfetti(){
+
+    for(let i = 0; i < 100; i++){
+
+        let confetti = document.createElement("div");
+
+        confetti.style.position = "fixed";
+        confetti.style.width = "8px";
+        confetti.style.height = "14px";
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.top = "-20px";
+
+        confetti.style.background =
+            [
+                "#ff1493",
+                "#ffd700",
+                "#00e5ff",
+                "#a957ff",
+                "#55ff77",
+                "#ffffff"
+            ][Math.floor(Math.random()*6)];
+
+        confetti.style.zIndex = "200";
+
+        document.body.appendChild(confetti);
+
+        let fall =
+            confetti.animate(
+                [
+                    {
+                        transform:"translateY(0) rotate(0deg)",
+                        opacity:1
+                    },
+
+                    {
+                        transform:
+                        "translateY(110vh) rotate(720deg)",
+                        opacity:0
+                    }
+                ],
+                {
+                    duration:(Math.random()*3+2)*1000,
+                    easing:"linear"
+                }
+            );
+
+        fall.onfinish = function(){
+            confetti.remove();
+        };
+    }
+}
+
+</script>
+
+</body>
+</html
