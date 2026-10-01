@@ -597,7 +597,14 @@ function createConfetti(){
     }
 }
 <script>
-const birthday = new Date("2026-11-09T00:00:00").getTime();
+const now = new Date();
+let birthdayDate = new Date(now.getFullYear(), 10, 9, 0, 0, 0);
+
+if (birthdayDate <= now) {
+    birthdayDate.setFullYear(now.getFullYear() + 1);
+}
+
+const birthday = birthdayDate.getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
