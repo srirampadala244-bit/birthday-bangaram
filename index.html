@@ -383,6 +383,38 @@ h1{
     .surpriseBtn{
         bottom:6%;
     }
+    .countdown{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:18px auto;
+    flex-wrap:wrap;
+}
+
+.timeBox{
+    min-width:65px;
+    padding:10px 8px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,105,180,0.5);
+    box-shadow:0 0 15px rgba(255,20,147,0.35);
+    backdrop-filter:blur(5px);
+}
+
+.timeBox div{
+    font-size:25px;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0 0 10px #ff69b4;
+}
+
+.timeBox span{
+    display:block;
+    margin-top:3px;
+    font-size:10px;
+    color:#ffd6ec;
+    letter-spacing:1px;
+}
 }
 </style>
 </head>
@@ -416,6 +448,27 @@ h1{
         <div class="subtitle">
             Wishing you lots of happiness & love ✨
         </div>
+        <div class="countdown">
+    <div class="timeBox">
+        <div id="days">00</div>
+        <span>DAYS</span>
+    </div>
+
+    <div class="timeBox">
+        <div id="hours">00</div>
+        <span>HOURS</span>
+    </div>
+
+    <div class="timeBox">
+        <div id="minutes">00</div>
+        <span>MINUTES</span>
+    </div>
+
+    <div class="timeBox">
+        <div id="seconds">00</div>
+        <span>SECONDS</span>
+    </div>
+</div>
     </div>
 
     <!-- CAKE -->
@@ -543,8 +596,58 @@ function createConfetti(){
         };
     }
 }
+<script>
+const birthday = new Date("November 9, 2026 00:00:00").getTime();
 
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    if (distance <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+
+        document.querySelector(".subtitle").innerHTML =
+            "🎉 TODAY IS YOUR SPECIAL DAY! 🎉";
+
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+    );
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
-
+    
 </body>
 </html
